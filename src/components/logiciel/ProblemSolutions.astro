@@ -6,7 +6,7 @@ import ModuleIcon from '@/components/ui/ModuleIcon.astro';
 import { modules, type ModuleSlug } from '@/config/site';
 
 /**
- * [À VALIDER] Constats du terrain : formulations générales sur les difficultés courantes du secteur.
+ * Constats du terrain validés par CNet Propreté.
  * Les réponses reprennent mot pour mot les textes validés des modules.
  */
 const challenges: Record<ModuleSlug, string> = {
@@ -18,7 +18,7 @@ const challenges: Record<ModuleSlug, string> = {
   remplacements: 'Des remplacements organisés dans l’urgence, sans suivi.',
   devis: 'Des devis préparés et suivis en dehors de l’outil de gestion.',
   'multi-sites': 'Des sites et chantiers nombreux, difficiles à suivre ensemble.',
-  'roles-permissions': 'Des informations accessibles sans distinction de fonction.',
+  'roles-permissions': 'Des accès à organiser selon les responsabilités de chacun.',
 };
 ---
 
@@ -31,8 +31,14 @@ const challenges: Record<ModuleSlug, string> = {
       intro="Les métiers de la propreté reposent sur de nombreuses informations à faire circuler entre le bureau et les sites. CNet Propreté les réunit en neuf modules."
     />
     <ul class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {modules.map((m) => (
-        <li class="flex flex-col rounded-card border border-line bg-white shadow-card">
+      {modules.map((m, i) => (
+        <li
+          class:list={[
+            'flex flex-col rounded-card border border-line bg-white shadow-card',
+            // 9 cartes : sur tablette (2 colonnes), la dernière occupe toute la largeur.
+            i === modules.length - 1 && 'md:col-span-2 lg:col-span-1',
+          ]}
+        >
           <p class="border-b border-line px-6 pt-5 pb-4 text-sm text-muted">
             <span class="font-semibold text-brand-800">Constat : </span>
             {challenges[m.slug]}

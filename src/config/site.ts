@@ -108,11 +108,14 @@ export const mainNav: NavLink[] = [
 export const ctaDemo: NavLink = { label: 'Demander une démo', href: '/demo' };
 
 /**
- * Bouton « Démarrer l’essai gratuit ».
- * [À VALIDER] Aucun parcours d’inscription n’existe encore sur le site : le bouton mène à la future
- * page de demande (étape 2.7), avec le motif « essai » présélectionné.
+ * Bouton de demande d’essai gratuit (validé par CNet Propreté).
+ * L’essai ne s’active pas automatiquement : le visiteur fait une demande. Le bouton mène à la
+ * future page de demande (étape 2.7), avec le motif « essai » présélectionné.
  */
-export const ctaTrial: NavLink = { label: 'Démarrer l’essai gratuit', href: '/demo?demande=essai' };
+export const ctaTrial: NavLink = {
+  label: 'Demander mon essai gratuit',
+  href: '/demo?demande=essai',
+};
 
 /** Offre commerciale validée (sans prix : ceux-ci ne sont affichés que sur la page Tarifs). */
 export const offer = {
