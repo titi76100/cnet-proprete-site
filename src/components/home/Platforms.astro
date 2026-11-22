@@ -1,0 +1,43 @@
+---
+import { Monitor, Smartphone, TabletSmartphone, ArrowRight } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+
+// Aucun lien de téléchargement tant que les liens officiels ne sont pas fournis.
+const platforms = [
+  { icon: Monitor, name: 'Windows', text: 'Application pour ordinateur.' },
+  { icon: Smartphone, name: 'Android', text: 'Application pour smartphone et tablette.' },
+  { icon: TabletSmartphone, name: 'iOS', text: 'Application pour iPhone et iPad.' },
+];
+---
+
+<section class="bg-surface py-20 sm:py-24" aria-labelledby="platforms-title">
+  <Container>
+    <SectionHeading
+      id="platforms-title"
+      eyebrow="Applications"
+      title="Au bureau comme sur le terrain"
+      intro="CNet Propreté est disponible sous forme d’applications Windows, Android et iOS."
+    />
+    <ul class="mx-auto mt-14 grid max-w-5xl gap-4 sm:grid-cols-3">
+      {platforms.map((p) => (
+        <li class="rounded-card border border-line bg-white p-6 text-center shadow-card">
+          <span class="mx-auto grid size-12 place-items-center rounded-full bg-brand-50 text-brand-700">
+            <p.icon class="size-6" aria-hidden="true" />
+          </span>
+          <h3 class="mt-4 text-lg font-bold">{p.name}</h3>
+          <p class="mt-1 text-sm text-muted">{p.text}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-8 text-center">
+      <a
+        href="/applications"
+        class="inline-flex items-center gap-1 font-semibold text-fresh-700 hover:text-fresh-800"
+      >
+        En savoir plus sur les applications
+        <ArrowRight class="size-4" aria-hidden="true" />
+      </a>
+    </p>
+  </Container>
+</section>

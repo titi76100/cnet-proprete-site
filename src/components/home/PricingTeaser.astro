@@ -1,0 +1,44 @@
+---
+import { Gift, Percent, Wrench } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+import Button from '@/components/ui/Button.astro';
+
+// Les prix ne sont affichés que sur la page Tarifs.
+const points = [
+  {
+    icon: Gift,
+    title: '30 jours d’essai gratuit',
+    text: 'Pour tester le logiciel avec vos équipes.',
+  },
+  { icon: Percent, title: '10 % de réduction', text: 'En choisissant le paiement annuel.' },
+  { icon: Wrench, title: 'Mise en service', text: 'Proposée en option pour bien démarrer.' },
+];
+---
+
+<section class="py-20 sm:py-24" aria-labelledby="pricing-title">
+  <Container>
+    <div class="grid items-center gap-10 rounded-2xl border border-line bg-gradient-to-br from-white to-fresh-50 p-8 shadow-card sm:p-12 lg:grid-cols-[1fr_1.4fr]">
+      <div>
+        <p class="text-sm font-semibold tracking-wide text-fresh-700 uppercase">Tarifs</p>
+        <h2 id="pricing-title" class="mt-2 text-3xl font-bold sm:text-4xl">
+          Une formule adaptée au nombre de comptes
+        </h2>
+        <p class="mt-4 text-lg text-muted">
+          Choisissez la formule qui correspond à la taille de vos équipes.
+        </p>
+        <Button href="/tarifs" size="lg" class="mt-8">
+          Voir les tarifs
+        </Button>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-3">
+        {points.map((p) => (
+          <li class="rounded-card bg-white p-5 ring-1 ring-line">
+            <p.icon class="size-6 text-fresh-700" aria-hidden="true" />
+            <h3 class="mt-3 text-base font-bold">{p.title}</h3>
+            <p class="mt-1 text-sm text-muted">{p.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Container>
+</section>

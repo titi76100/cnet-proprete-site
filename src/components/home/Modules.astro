@@ -1,0 +1,41 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import ModuleIcon from '@/components/ui/ModuleIcon.astro';
+import { modules } from '@/config/site';
+---
+
+<section class="bg-surface py-20 sm:py-24" aria-labelledby="modules-title">
+  <Container>
+    <SectionHeading
+      id="modules-title"
+      eyebrow="Fonctionnalités"
+      title="Tout ce qu’il faut pour piloter vos équipes et vos sites"
+      intro="Neuf modules complémentaires, réunis dans un même logiciel."
+    />
+    <ul class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {modules.map((m) => (
+        <li>
+          <a
+            href={`/fonctionnalites/${m.slug}`}
+            class="group flex h-full flex-col rounded-card border border-line bg-white p-5 shadow-card sm:p-6 transition hover:-translate-y-0.5 hover:border-fresh-200 hover:shadow-lift"
+          >
+            <span class="grid size-10 sm:size-11 place-items-center rounded-lg bg-fresh-50 text-fresh-700 ring-1 ring-fresh-100">
+              <ModuleIcon slug={m.slug} class="size-5" />
+            </span>
+            <h3 class="mt-4 text-lg sm:mt-5 font-bold">{m.label}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{m.summary}</p>
+            <span class="mt-5 hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-fresh-700">
+              En savoir plus
+              <ArrowRight
+                class="size-4 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Container>
+</section>
