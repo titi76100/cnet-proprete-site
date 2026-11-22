@@ -1,0 +1,46 @@
+---
+import { ChevronRight } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+
+export type Crumb = { label: string; href: string };
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+const all: Crumb[] = [{ label: 'Accueil', href: '/' }, ...items];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: all.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href, Astro.site).href,
+  })),
+};
+---
+
+<nav aria-label="Fil d’Ariane" class="border-b border-line bg-white">
+  <Container>
+    <ol class="flex flex-wrap items-center gap-1 py-3 text-sm text-muted">
+      {all.map((c, i) => (
+        <li class="flex items-center gap-1">
+          {i > 0 && <ChevronRight class="size-4 text-slate-400" aria-hidden="true" />}
+          {i === all.length - 1 ? (
+            <span aria-current="page" class="font-medium text-brand-800">
+              {c.label}
+            </span>
+          ) : (
+            <a href={c.href} class="rounded hover:text-brand-700 hover:underline">
+              {c.label}
+            </a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </Container>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />

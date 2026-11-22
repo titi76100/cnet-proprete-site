@@ -107,6 +107,46 @@ export const mainNav: NavLink[] = [
 
 export const ctaDemo: NavLink = { label: 'Demander une démo', href: '/demo' };
 
+/**
+ * Bouton « Démarrer l’essai gratuit ».
+ * [À VALIDER] Aucun parcours d’inscription n’existe encore sur le site : le bouton mène à la future
+ * page de demande (étape 2.7), avec le motif « essai » présélectionné.
+ */
+export const ctaTrial: NavLink = { label: 'Démarrer l’essai gratuit', href: '/demo?demande=essai' };
+
+/** Offre commerciale validée (sans prix : ceux-ci ne sont affichés que sur la page Tarifs). */
+export const offer = {
+  trialDays: 30,
+  annualDiscountPercent: 10,
+} as const;
+
+/** Publics cibles. Textes validés par CNet Propreté. */
+export const audiences = [
+  {
+    key: 'nettoyage',
+    title: 'Entreprises de nettoyage',
+    href: '/solutions/entreprises-de-nettoyage',
+    points: [
+      'Organisez vos équipes et vos plannings sur l’ensemble de vos sites.',
+      'Contrôlez la qualité de vos prestations et conservez un suivi des interventions.',
+      'Gérez les remplacements, les signalements et les demandes de matériel depuis un seul outil.',
+    ],
+  },
+  {
+    key: 'insertion',
+    title: 'Structures d’insertion',
+    href: '/solutions/structures-insertion',
+    points: [
+      'Coordonnez les encadrants techniques et les salariés sur vos différents chantiers.',
+      'Adaptez les droits d’accès aux fonctions de chacun.',
+      'Centralisez le suivi des chantiers : qualité, signalements, matériel, clés et badges.',
+    ],
+  },
+] as const;
+
+/** Plateformes sur lesquelles les applications sont disponibles (confirmé par CNet Propreté). */
+export const platforms = ['Windows', 'Android', 'iOS'] as const;
+
 export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: 'Logiciel',

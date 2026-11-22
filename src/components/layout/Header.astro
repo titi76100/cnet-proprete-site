@@ -6,7 +6,8 @@ import Button from '@/components/ui/Button.astro';
 import ModuleIcon from '@/components/ui/ModuleIcon.astro';
 import { site, modules, solutions, mainNav, ctaDemo } from '@/config/site';
 
-const current = Astro.url.pathname;
+// En build statique (format "file"), le chemin peut se terminer par .html : on le normalise.
+const current = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 const isActive = (href: string) => current === href || current.startsWith(`${href}/`);
 const [logiciel, ...otherLinks] = mainNav;
 ---

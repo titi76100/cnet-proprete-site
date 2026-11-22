@@ -1,0 +1,60 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import ModuleIcon from '@/components/ui/ModuleIcon.astro';
+import { modules, type ModuleSlug } from '@/config/site';
+
+/**
+ * [À VALIDER] Constats du terrain : formulations générales sur les difficultés courantes du secteur.
+ * Les réponses reprennent mot pour mot les textes validés des modules.
+ */
+const challenges: Record<ModuleSlug, string> = {
+  'salaries-plannings': 'Des plannings dispersés entre tableurs, papiers et appels.',
+  'controles-qualite': 'Des contrôles qualité difficiles à tracer dans le temps.',
+  signalements: 'Des anomalies remontées oralement, puis perdues de vue.',
+  'commandes-materiel': 'Des demandes de matériel qui arrivent par tous les canaux.',
+  'cles-badges': 'Des clés et badges dont on ne sait plus qui les détient.',
+  remplacements: 'Des remplacements organisés dans l’urgence, sans suivi.',
+  devis: 'Des devis préparés et suivis en dehors de l’outil de gestion.',
+  'multi-sites': 'Des sites et chantiers nombreux, difficiles à suivre ensemble.',
+  'roles-permissions': 'Des informations accessibles sans distinction de fonction.',
+};
+---
+
+<section class="bg-surface py-20 sm:py-24" aria-labelledby="problemes-title">
+  <Container>
+    <SectionHeading
+      id="problemes-title"
+      eyebrow="Vos enjeux, nos réponses"
+      title="Les difficultés du terrain, un module pour chacune"
+      intro="Les métiers de la propreté reposent sur de nombreuses informations à faire circuler entre le bureau et les sites. CNet Propreté les réunit en neuf modules."
+    />
+    <ul class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {modules.map((m) => (
+        <li class="flex flex-col rounded-card border border-line bg-white shadow-card">
+          <p class="border-b border-line px-6 pt-5 pb-4 text-sm text-muted">
+            <span class="font-semibold text-brand-800">Constat : </span>
+            {challenges[m.slug]}
+          </p>
+          <div class="flex flex-1 flex-col p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-fresh-50 text-fresh-700 ring-1 ring-fresh-100">
+                <ModuleIcon slug={m.slug} class="size-5" />
+              </span>
+              <h3 class="text-lg font-bold">{m.label}</h3>
+            </div>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-ink">{m.summary}</p>
+            <a
+              href={`/fonctionnalites/${m.slug}`}
+              class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-fresh-700 hover:text-fresh-800"
+            >
+              Découvrir le module<span class="sr-only"> {m.label}</span>
+              <ArrowRight class="size-4" aria-hidden="true" />
+            </a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </Container>
+</section>

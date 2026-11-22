@@ -3,6 +3,22 @@ import { Monitor, Smartphone, TabletSmartphone, ArrowRight } from '@lucide/astro
 import Container from '@/components/ui/Container.astro';
 import SectionHeading from '@/components/ui/SectionHeading.astro';
 
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  background?: 'white' | 'surface';
+  showMoreLink?: boolean;
+}
+
+const {
+  eyebrow = 'Applications',
+  title = 'Au bureau comme sur le terrain',
+  intro = 'CNet Propreté est disponible sous forme d’applications Windows, Android et iOS.',
+  background = 'surface',
+  showMoreLink = true,
+} = Astro.props;
+
 // Aucun lien de téléchargement tant que les liens officiels ne sont pas fournis.
 const platforms = [
   { icon: Monitor, name: 'Windows', text: 'Application pour ordinateur.' },
@@ -11,14 +27,12 @@ const platforms = [
 ];
 ---
 
-<section class="bg-surface py-20 sm:py-24" aria-labelledby="platforms-title">
+<section
+  class:list={['py-20 sm:py-24', background === 'surface' && 'bg-surface']}
+  aria-labelledby="platforms-title"
+>
   <Container>
-    <SectionHeading
-      id="platforms-title"
-      eyebrow="Applications"
-      title="Au bureau comme sur le terrain"
-      intro="CNet Propreté est disponible sous forme d’applications Windows, Android et iOS."
-    />
+    <SectionHeading id="platforms-title" eyebrow={eyebrow} title={title} intro={intro} />
     <ul class="mx-auto mt-14 grid max-w-5xl gap-4 sm:grid-cols-3">
       {platforms.map((p) => (
         <li class="rounded-card border border-line bg-white p-6 text-center shadow-card">
@@ -30,14 +44,16 @@ const platforms = [
         </li>
       ))}
     </ul>
-    <p class="mt-8 text-center">
-      <a
-        href="/applications"
-        class="inline-flex items-center gap-1 font-semibold text-fresh-700 hover:text-fresh-800"
-      >
-        En savoir plus sur les applications
-        <ArrowRight class="size-4" aria-hidden="true" />
-      </a>
-    </p>
+    {showMoreLink && (
+      <p class="mt-8 text-center">
+        <a
+          href="/applications"
+          class="inline-flex items-center gap-1 font-semibold text-fresh-700 hover:text-fresh-800"
+        >
+          En savoir plus sur les applications
+          <ArrowRight class="size-4" aria-hidden="true" />
+        </a>
+      </p>
+    )}
   </Container>
 </section>

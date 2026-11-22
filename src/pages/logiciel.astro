@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/ui/Breadcrumb.astro';
+import SoftwareHero from '@/components/logiciel/SoftwareHero.astro';
+import ProblemSolutions from '@/components/logiciel/ProblemSolutions.astro';
+import Centralized from '@/components/logiciel/Centralized.astro';
+import Audiences from '@/components/home/Audiences.astro';
+import Platforms from '@/components/home/Platforms.astro';
+import FinalCta from '@/components/home/FinalCta.astro';
+import { site, platforms, ctaTrial, offer } from '@/config/site';
+
+const title = 'Le logiciel de gestion pour les métiers de la propreté';
+const description =
+  'Découvrez CNet Propreté : salariés et plannings, contrôles qualité, signalements, commandes de matériel, clés et badges, remplacements, devis, multi-sites, rôles et permissions. Applications Windows, Android et iOS.';
+
+// Données structurées : uniquement des informations validées (pas de prix, pas d'avis).
+const softwareLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: site.name,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: platforms.join(', '),
+  description,
+  url: new URL('/logiciel', Astro.site).href,
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(softwareLd)} is:inline />
+  <Breadcrumb items={[{ label: 'Logiciel', href: '/logiciel' }]} />
+  <SoftwareHero />
+  <ProblemSolutions />
+  <Centralized />
+  <Audiences
+    background="surface"
+    eyebrow="Avantages"
+    title="Pensé pour vos métiers"
+    intro="Que vous dirigiez une entreprise de nettoyage ou une structure d’insertion, CNet Propreté s’adapte à votre organisation."
+  />
+  <Platforms
+    background="white"
+    title="Une application pour chaque usage"
+    intro="CNet Propreté est disponible sous forme d’applications Windows, Android et iOS, pour une utilisation au bureau comme sur les sites."
+  />
+  <FinalCta
+    title="Testez CNet Propreté avec vos équipes"
+    text={`Profitez de ${offer.trialDays} jours d’essai gratuit, ou demandez une démonstration pour découvrir le logiciel en situation. En paiement annuel, bénéficiez de ${offer.annualDiscountPercent} % de réduction.`}
+    secondary={ctaTrial}
+  />
+</BaseLayout>

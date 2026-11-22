@@ -1,0 +1,54 @@
+---
+import { Layers, Building, ShieldCheck, MonitorSmartphone } from '@lucide/astro';
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+
+// Atouts issus uniquement des éléments validés : 9 modules, multi-sites, rôles, applications.
+const pillars = [
+  {
+    icon: Layers,
+    title: 'Un seul outil',
+    text: 'Plannings, qualité, signalements, matériel, clés et badges, remplacements et devis sont réunis dans le même logiciel.',
+  },
+  {
+    icon: Building,
+    title: 'Tous vos sites',
+    text: 'Pilotez l’ensemble de vos sites et chantiers depuis une même interface.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Des accès adaptés',
+    text: 'Attribuez à chaque utilisateur les accès adaptés à sa fonction.',
+  },
+  {
+    icon: MonitorSmartphone,
+    title: 'Au bureau et sur le terrain',
+    text: 'Applications disponibles sur Windows, Android et iOS.',
+  },
+];
+---
+
+<section class="py-20 sm:py-24" aria-labelledby="centralise-title">
+  <Container class="grid items-center gap-12 lg:grid-cols-[1fr_1.15fr]">
+    <div>
+      <SectionHeading
+        id="centralise-title"
+        align="left"
+        eyebrow="Gestion centralisée"
+        title="Toutes vos informations au même endroit"
+        intro="Fini les outils éparpillés : vos équipes, vos sites et vos interventions sont suivis depuis un logiciel unique, avec des accès définis selon les fonctions de chacun."
+      />
+    </div>
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {pillars.map((p) => (
+        <li class="rounded-card border border-line bg-white p-6 shadow-card">
+          <span class="grid size-11 place-items-center rounded-lg bg-brand-700 text-white">
+            <p.icon class="size-5" aria-hidden="true" />
+          </span>
+          <h3 class="mt-4 text-lg font-bold">{p.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{p.text}</p>
+        </li>
+      ))}
+    </ul>
+  </Container>
+</section>
