@@ -1,0 +1,36 @@
+---
+import {
+  CalendarDays,
+  ClipboardCheck,
+  TriangleExclamationPoint,
+  Package,
+  KeyRound,
+  Repeat2,
+  MessagesSquare,
+  Building,
+  ShieldCheck,
+} from '@lucide/astro';
+import type { ModuleSlug } from '@/config/site';
+
+interface Props {
+  slug: ModuleSlug;
+  class?: string;
+}
+
+const icons = {
+  'salaries-plannings': CalendarDays,
+  'controles-qualite': ClipboardCheck,
+  signalements: TriangleExclamationPoint,
+  'commandes-materiel': Package,
+  'cles-badges': KeyRound,
+  remplacements: Repeat2,
+  'messagerie-interne': MessagesSquare,
+  'multi-sites': Building,
+  'roles-permissions': ShieldCheck,
+} as const;
+
+const { slug, class: className = 'size-5' } = Astro.props;
+const Icon = icons[slug];
+---
+
+<Icon class={className} aria-hidden="true" stroke-width={1.75} />

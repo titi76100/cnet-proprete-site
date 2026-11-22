@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+/*
+ * Identité visuelle PROVISOIRE de CNet Propreté.
+ * Toutes les couleurs et polices sont centralisées ici :
+ * elles seront ajustées à la réception de la charte et du logo définitifs.
+ */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans Variable', 'Inter Variable', ui-sans-serif, sans-serif;
+
+  /* Bleu profond : confiance, sérieux */
+  --color-brand-50: #eef6fb;
+  --color-brand-100: #d5e8f4;
+  --color-brand-200: #a9cfe8;
+  --color-brand-300: #6fadd5;
+  --color-brand-400: #3a86b9;
+  --color-brand-500: #1c6597;
+  --color-brand-600: #134e7a;
+  --color-brand-700: #0b3b60;
+  --color-brand-800: #082c48;
+  --color-brand-900: #061f33;
+  --color-brand-950: #03121f;
+
+  /* Turquoise : propreté, fraîcheur */
+  --color-fresh-50: #effcf9;
+  --color-fresh-100: #ccf6ee;
+  --color-fresh-200: #99ecdd;
+  --color-fresh-300: #5fdbc8;
+  --color-fresh-400: #2dd4bf;
+  --color-fresh-500: #14b8a6;
+  --color-fresh-600: #0d9488;
+  --color-fresh-700: #0f766e;
+  --color-fresh-800: #115e59;
+
+  /* Ambre : accent réservé aux actions principales */
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  /* Neutres */
+  --color-ink: #1e293b;
+  --color-muted: #475569;
+  --color-line: #e2e8f0;
+  --color-surface: #f1f5f9;
+
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 16px -4px rgb(15 23 42 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.05), 0 16px 40px -12px rgb(11 59 96 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-brand-800;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-fresh-600;
+  }
+
+  ::selection {
+    @apply bg-fresh-200 text-brand-900;
+  }
+}

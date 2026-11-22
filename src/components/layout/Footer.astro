@@ -1,0 +1,51 @@
+---
+import Container from '@/components/ui/Container.astro';
+import Logo from '@/components/ui/Logo.astro';
+import Button from '@/components/ui/Button.astro';
+import { site, footerNav, ctaDemo } from '@/config/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brand-800 text-brand-100">
+  <Container class="py-14 lg:py-16">
+    <div class="grid gap-10 lg:grid-cols-[1.3fr_3fr]">
+      <div class="max-w-sm">
+        <a href="/" aria-label={`${site.name} — accueil`} class="inline-block rounded-md">
+          <Logo tone="light" />
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-brand-200">{site.tagline}.</p>
+        <Button href={ctaDemo.href} class="mt-6">
+          {ctaDemo.label}
+        </Button>
+      </div>
+
+      <nav aria-label="Plan du site" class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        {footerNav.map((group) => (
+          <div>
+            <h2 class="font-sans text-sm font-semibold text-white!">{group.title}</h2>
+            <ul class="mt-4 space-y-2.5">
+              {group.links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    class="text-sm text-brand-200 transition-colors hover:text-white"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-brand-300 sm:flex-row sm:items-center sm:justify-between">
+      <p>
+        © {year} {site.legalName}. Tous droits réservés.
+      </p>
+      <p>{site.name} — site en cours de construction</p>
+    </div>
+  </Container>
+</footer>
