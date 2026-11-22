@@ -45,6 +45,6 @@ docs/decisions.md        décisions validées (tarifs, contenus, hébergement)
 
 - Aucun témoignage, chiffre, logo client, certification ou lien de téléchargement non fourni par
   CNet Propreté.
-- Les éléments à compléter ou à valider sont marqués `[À COMPLÉTER]` ou `[À VALIDER]`.
+- Les éléments à compléter ou à valider sont marqués `[À COMPLÉTER]` ou `[À VALIDER]` dans le code.
 - Les fonctionnalités futures (paiement, assistant IA) sont désactivées : `PUBLIC_FEATURE_CHECKOUT`,
   `PUBLIC_FEATURE_ASSISTANT` (voir `.env.example`). Aucun secret ne doit être versionné.

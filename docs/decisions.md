@@ -31,3 +31,20 @@ Référence de travail pour les prochaines phases. Rien de ce fichier n'est affi
 - Pages légales : modèles avec champs à compléter, sans prétendre à une validation juridique.
 - Bouton « Se connecter » masqué tant qu'aucune adresse n'est fournie (`site.appLoginUrl`).
 - Identité visuelle provisoire en attendant le logo définitif.
+
+## Modules présentés (textes validés)
+
+1. Salariés & plannings — Organisez vos équipes et leurs interventions sur chaque site.
+2. Contrôles qualité — Réalisez et suivez les contrôles de vos prestations.
+3. Signalements — Déclarez les anomalies du terrain, ajoutez des photos et suivez leur traitement.
+4. Commandes de matériel — Centralisez les demandes et le suivi des commandes de matériel.
+   (Ne pas laisser entendre que les commandes sont passées automatiquement aux fournisseurs.)
+5. Clés & badges — Gardez la trace des clés et badges confiés à vos équipes.
+6. Remplacements — Organisez les remplacements et assurez le suivi des interventions avant et
+   après remplacement. (Parler d'organisation et de suivi, pas d'anticipation des absences.)
+7. Devis — Créez, gérez et suivez vos devis directement depuis CNet Propreté.
+8. Gestion multi-sites — Pilotez l'ensemble de vos sites et chantiers.
+9. Rôles & permissions — Attribuez à chaque utilisateur les accès adaptés à sa fonction.
+
+- Le module « Messages internes » n'est pas présenté sur le site commercial (décision CNet Propreté).
+- Les rôles d'encadrant technique et les comptes salariés existent dans le logiciel.

@@ -7,7 +7,7 @@ export const site = {
   name: 'CNet Propreté',
   tagline: 'Logiciel de gestion pour les entreprises de nettoyage et les structures d’insertion',
   description:
-    'CNet Propreté est un logiciel de gestion pensé pour les entreprises de nettoyage et les structures d’insertion : salariés, plannings, contrôles qualité, signalements, matériel, clés et badges, remplacements et messagerie interne.',
+    'CNet Propreté est un logiciel de gestion pensé pour les entreprises de nettoyage et les structures d’insertion : salariés, plannings, contrôles qualité, signalements, matériel, clés et badges, remplacements et devis.',
   locale: 'fr_FR',
   /** [À COMPLÉTER] Raison sociale affichée dans le pied de page. */
   legalName: '[RAISON SOCIALE À COMPLÉTER]',
@@ -29,7 +29,7 @@ export const features = {
 
 export type NavLink = { label: string; href: string; description?: string };
 
-/** Les 9 modules présentés, dans l’ordre fourni par CNet Propreté. */
+/** Les 9 modules présentés, dans l’ordre fourni par CNet Propreté. Textes validés par CNet Propreté. */
 export const modules = [
   {
     slug: 'salaries-plannings',
@@ -44,12 +44,12 @@ export const modules = [
   {
     slug: 'signalements',
     label: 'Signalements',
-    summary: 'Faites remonter les anomalies du terrain et suivez leur traitement.',
+    summary: 'Déclarez les anomalies du terrain, ajoutez des photos et suivez leur traitement.',
   },
   {
     slug: 'commandes-materiel',
     label: 'Commandes de matériel',
-    summary: 'Centralisez les demandes de produits et de matériel.',
+    summary: 'Centralisez les demandes et le suivi des commandes de matériel.',
   },
   {
     slug: 'cles-badges',
@@ -59,12 +59,13 @@ export const modules = [
   {
     slug: 'remplacements',
     label: 'Remplacements',
-    summary: 'Gérez les absences et organisez les remplacements.',
+    summary:
+      'Organisez les remplacements et assurez le suivi des interventions avant et après remplacement.',
   },
   {
-    slug: 'messagerie-interne',
-    label: 'Messages internes',
-    summary: 'Communiquez avec vos équipes depuis un seul outil.',
+    slug: 'devis',
+    label: 'Devis',
+    summary: 'Créez, gérez et suivez vos devis directement depuis CNet Propreté.',
   },
   {
     slug: 'multi-sites',
@@ -74,7 +75,7 @@ export const modules = [
   {
     slug: 'roles-permissions',
     label: 'Rôles & permissions',
-    summary: 'Donnez à chacun l’accès adapté à sa fonction.',
+    summary: 'Attribuez à chaque utilisateur les accès adaptés à sa fonction.',
   },
 ] as const;
 
