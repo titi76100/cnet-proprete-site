@@ -43,7 +43,7 @@ const year = new Date().getFullYear();
 
     <div class="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-brand-300 sm:flex-row sm:items-center sm:justify-between">
       <p>
-        © {year} {site.legalName}. Tous droits réservés.
+        © {year} {site.legalName ?? site.name}. Tous droits réservés.
       </p>
       <p>{site.name} — site en cours de construction</p>
     </div>

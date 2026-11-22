@@ -29,6 +29,8 @@ Référence de travail pour les prochaines phases. Rien de ce fichier n'est affi
 - Pas de témoignages, chiffres commerciaux, certifications, fonctionnalités non vérifiées ni liens
   de téléchargement inexistants.
 - Pages légales : modèles avec champs à compléter, sans prétendre à une validation juridique.
+- Raison sociale non affichée tant qu'elle n'est pas fournie (`site.legalName`) ; le pied de page
+  affiche « © année CNet Propreté ».
 - Bouton « Se connecter » masqué tant qu'aucune adresse n'est fournie (`site.appLoginUrl`).
 - Identité visuelle provisoire en attendant le logo définitif.
 

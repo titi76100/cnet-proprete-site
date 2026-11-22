@@ -9,8 +9,11 @@ export const site = {
   description:
     'CNet Propreté est un logiciel de gestion pensé pour les entreprises de nettoyage et les structures d’insertion : salariés, plannings, contrôles qualité, signalements, matériel, clés et badges, remplacements et devis.',
   locale: 'fr_FR',
-  /** [À COMPLÉTER] Raison sociale affichée dans le pied de page. */
-  legalName: '[RAISON SOCIALE À COMPLÉTER]',
+  /**
+   * Raison sociale affichée dans le pied de page.
+   * Laisser `null` tant qu’elle n’est pas fournie : seul le nom du logiciel est affiché.
+   */
+  legalName: null as string | null,
   /**
    * Adresse de connexion au logiciel.
    * Laisser `null` : le bouton « Se connecter » reste masqué tant qu’aucune adresse n’est confirmée.
