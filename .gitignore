@@ -1,0 +1,22 @@
+# Dépendances
+node_modules/
+
+# Builds
+dist/
+.astro/
+.wrangler/
+
+# Variables d'environnement (ne jamais versionner de secrets)
+.env
+.env.*
+!.env.example
+.dev.vars*
+
+# Journaux
+npm-debug.log*
+
+# Systèmes
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

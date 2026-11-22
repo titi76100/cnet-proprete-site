@@ -1,0 +1,3 @@
+# Site en construction : indexation bloquée jusqu'à la mise en production.
+User-agent: *
+Disallow: /
